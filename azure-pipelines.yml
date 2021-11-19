@@ -17,3 +17,10 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+- task: UiPathDeploy@2
+  inputs:
+    orchestratorConnection: 'UiPath Orch and Azure DevOps'
+    packagesPath: '$(Build.ArtifactStagingDirectory)\Packages\PM.Test.Azure.Devops'
+    folderName: 'Shared'
+    entryPoints: 'Main.xaml'
+    traceLevel: 'Information'
